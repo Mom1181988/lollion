@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مزحة من عمك أبو حسن 😂</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .message-container {
+            text-align: center;
+            font-size: 2.5em;
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .big-laugh {
+            font-size: 5em;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0; }
+            to { text-shadow: 0 0 20px #0f0, 0 0 30px #0f0, 0 0 40px #0f0; }
+        }
+
+        .emoji-rain {
+            position: fixed;
+            font-size: 24px;
+            animation: fall linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+
+        @media (max-width: 768px) {
+            .message-container {
+                font-size: 2em;
+            }
+            .big-laugh {
+                font-size: 4em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .message-container {
+                font-size: 1.8em;
+                margin: 15px;
+            }
+            .big-laugh {
+                font-size: 3.5em;
+            }
+            .emoji-row {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .message-container {
+                font-size: 1.5em;
+                margin: 10px;
+            }
+            .big-laugh {
+                font-size: 3em;
+            }
+            .emoji-row {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="side-glow-left"></div>
+    <div class="side-glow-right"></div>
+    
+    <div class="hack-container">
+        <div class="message-container">
+            <div class="big-laugh">😂</div>
+            <div>لا تقلق عزيزي</div>
+            <div>عمك أبو حسن يمزح معك</div>
+            <div class="emoji-row">
+                🤣 😂 🤪 😎 😄
+            </div>
+        </div>
+    </div>
+
+    <div class="matrix-bg"></div>
+    <div class="glitch-overlay"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة الإيموجي المتساقط
+            function createEmoji() {
+                const emojis = ['😂', '🤣', '😎', '😄', '🤪'];
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji-rain';
+                emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(emoji);
+                setTimeout(() => emoji.remove(), 5000);
+            }
+
+            // إنشاء إيموجي جديد كل 200 مللي ثانية
+            setInterval(createEmoji, 200);
+        });
+    </script>
+</body>
+</html>
